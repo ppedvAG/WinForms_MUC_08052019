@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +65,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.demodatenErstellenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.halloBindingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -80,10 +80,17 @@
             this.regionCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.speicherColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.releaseDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.halloBinding1 = new HalloBlueSafe.HalloBinding();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -98,7 +105,7 @@
             this.dateiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(580, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1119, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -331,7 +338,8 @@
             this.speichernToolStripMenuItem,
             this.toolStripMenuItem1,
             this.demodatenErstellenToolStripMenuItem,
-            this.toolStripMenuItem2});
+            this.toolStripMenuItem2,
+            this.halloBindingToolStripMenuItem});
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
             this.dateiToolStripMenuItem.Text = "Date&i";
@@ -366,6 +374,13 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(220, 6);
             // 
+            // halloBindingToolStripMenuItem
+            // 
+            this.halloBindingToolStripMenuItem.Name = "halloBindingToolStripMenuItem";
+            this.halloBindingToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
+            this.halloBindingToolStripMenuItem.Text = "HalloBinding...";
+            this.halloBindingToolStripMenuItem.Click += new System.EventHandler(this.halloBindingToolStripMenuItem_Click);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoSize = true;
@@ -375,9 +390,10 @@
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.button4);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 28);
+            this.flowLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(580, 36);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1105, 36);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // button1
@@ -440,11 +456,11 @@
             this.tableLayoutPanel1.Controls.Add(this.saveButton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 64);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 39);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(580, 38);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1105, 38);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // openButton
@@ -453,7 +469,7 @@
             this.openButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.openButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.openButton.Image = global::HalloBlueSafe.Properties.Resources.xml_imports;
-            this.openButton.Location = new System.Drawing.Point(370, 4);
+            this.openButton.Location = new System.Drawing.Point(895, 4);
             this.openButton.Margin = new System.Windows.Forms.Padding(4);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(89, 30);
@@ -469,7 +485,7 @@
             this.saveButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.saveButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.Image = global::HalloBlueSafe.Properties.Resources.xml_exports;
-            this.saveButton.Location = new System.Drawing.Point(467, 4);
+            this.saveButton.Location = new System.Drawing.Point(992, 4);
             this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(109, 30);
@@ -486,7 +502,7 @@
             this.textBox1.Location = new System.Drawing.Point(8, 6);
             this.textBox1.Margin = new System.Windows.Forms.Padding(8, 6, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(354, 27);
+            this.textBox1.Size = new System.Drawing.Size(879, 27);
             this.textBox1.TabIndex = 2;
             // 
             // dataGridView1
@@ -497,19 +513,11 @@
             this.regionCodeColumn,
             this.speicherColumn,
             this.releaseDateColumn});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 102);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 77);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(580, 348);
+            this.dataGridView1.Size = new System.Drawing.Size(1105, 382);
             this.dataGridView1.TabIndex = 3;
             // 
             // titelColumn
@@ -525,7 +533,7 @@
             this.regionCodeColumn.DataPropertyName = "RegionCode";
             this.regionCodeColumn.HeaderText = "Region";
             this.regionCodeColumn.Name = "regionCodeColumn";
-            this.regionCodeColumn.Width = 82;
+            this.regionCodeColumn.Width = 85;
             // 
             // speicherColumn
             // 
@@ -533,7 +541,7 @@
             this.speicherColumn.DataPropertyName = "Speicher";
             this.speicherColumn.HeaderText = "Speicher";
             this.speicherColumn.Name = "speicherColumn";
-            this.speicherColumn.Width = 93;
+            this.speicherColumn.Width = 95;
             // 
             // releaseDateColumn
             // 
@@ -543,15 +551,59 @@
             this.releaseDateColumn.Name = "releaseDateColumn";
             this.releaseDateColumn.Width = 89;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 28);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1119, 491);
+            this.tabControl1.TabIndex = 4;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage1.Controls.Add(this.flowLayoutPanel1);
+            this.tabPage1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1111, 462);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Blaue Strahlen";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.halloBinding1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1111, 462);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Hallo Binding";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // halloBinding1
+            // 
+            this.halloBinding1.BackColor = System.Drawing.Color.LightSalmon;
+            this.halloBinding1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.halloBinding1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.halloBinding1.Location = new System.Drawing.Point(3, 3);
+            this.halloBinding1.Name = "halloBinding1";
+            this.halloBinding1.Size = new System.Drawing.Size(1105, 456);
+            this.halloBinding1.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(580, 450);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(1119, 519);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -564,6 +616,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -621,6 +677,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn regionCodeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn speicherColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn releaseDateColumn;
+        private System.Windows.Forms.ToolStripMenuItem halloBindingToolStripMenuItem;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private HalloBinding halloBinding1;
     }
 }
 

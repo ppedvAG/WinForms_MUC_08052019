@@ -59,11 +59,20 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HalloBinding.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HalloBinding.Designer.cs">
+      <DependentUpon>HalloBinding.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Blue.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HalloBinding.resx">
+      <DependentUpon>HalloBinding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de-CH.resx">
       <Generator>ResXFileCodeGenerator</Generator>

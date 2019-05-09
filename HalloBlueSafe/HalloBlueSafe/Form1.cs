@@ -96,5 +96,14 @@ namespace HalloBlueSafe
                 textBox1.Text = dlg.FileName;
             }
         }
+
+        private void halloBindingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Form();
+            var hb = new HalloBinding();
+            hb.Dock = DockStyle.Fill;
+            form.Controls.Add(hb);
+            form.ShowDialog();
+        }
     }
 }
