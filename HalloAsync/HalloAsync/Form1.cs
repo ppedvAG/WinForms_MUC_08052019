@@ -98,6 +98,7 @@ namespace HalloAsync
 
         private async void button6_Click(object sender, EventArgs e)
         {
+            button6.Enabled = false;
             //string conString = "Server=GibEsNicht;Database=AuchNichtDa;Trusted_Connection=true;Timeout=5";
             string conString = "Server=.;Database=NorthWind;Trusted_Connection=true;";
             try
@@ -130,7 +131,7 @@ namespace HalloAsync
             {
                 progressBar1.Style = ProgressBarStyle.Continuous;
                 pictureBox1.Visible = !true;
-
+                button6.Enabled = !!!false;
             }
         }
     }

@@ -29,14 +29,18 @@ namespace HalloAsync
         protected override void OnPaint(PaintEventArgs pevent)
         {
             //base.OnPaint(pevent);
-            pevent.Graphics.FillRectangle(Brushes.White, this.ClientRectangle);
-            pevent.Graphics.FillEllipse(new HatchBrush(HatchStyle.Cross, Color.Cyan, BackColor), this.ClientRectangle);
+            pevent.Graphics.FillRectangle(new SolidBrush(Parent.BackColor), this.ClientRectangle);
+
+            pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            pevent.Graphics.FillEllipse(new HatchBrush(HatchStyle.Cross, Color.Yellow, BackColor), this.ClientRectangle);
 
             var sf = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
             var myFont = new Font(SystemFonts.DefaultFont.FontFamily, 26, FontStyle.Bold);
-            var brush = new LinearGradientBrush(ClientRectangle, Color.Magenta, Color.Yellow, 90f);
+            var brush = new LinearGradientBrush(ClientRectangle, Color.Magenta, Color.Cyan, 90f);
             pevent.Graphics.DrawString(Text, myFont, brush, ClientRectangle, sf);
 
+            //Text = $"Paints: {c++}";//witzig aber dumm
         }
+        int c = 0;
     }
 }
